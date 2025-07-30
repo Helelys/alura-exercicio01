@@ -50,8 +50,6 @@ public class LivroService {
         teclado.close();
     }
 
-
-
     public String consumoDaApi(String endereco) throws IOException, InterruptedException {
 
         var url = "https://gutendex.com/books/?search=" + endereco.replaceAll(" ", "+");
