@@ -1,5 +1,7 @@
 package br.com.alura.screenmatch.modelos;
 
+import br.com.alura.screenmatch.modelos.exception.ErroDeConversaoException;
+
 public class Titulo implements Comparable<Titulo> {
     private String nome;
     private int anoDeLancamento;
@@ -13,8 +15,11 @@ public class Titulo implements Comparable<Titulo> {
         this.anoDeLancamento = anoDeLancamento;
     }
 
-    public Titulo(TituloOmdb tituloOmdb) {
+    public Titulo(TituloOmdb tituloOmdb) throws ErroDeConversaoException {
         this.nome = tituloOmdb.title();
+        if (tituloOmdb.year().length() > 4) {
+            throw new ErroDeConversaoException("Ano de lançamento inválido: " + tituloOmdb.year());
+        }
         this.anoDeLancamento = Integer.parseInt(tituloOmdb.year());
         this.duracaoEmMinutos = Integer.parseInt(tituloOmdb.runtime().replace(" min", ""));
     }

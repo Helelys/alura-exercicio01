@@ -27,7 +27,7 @@ public class LivroService {
         do {
             System.out.println("Digite o número da opção desejada: ");
             teste = teclado.nextInt();
-            teclado.nextLine(); // Limpa o buffer
+            teclado.nextLine();
             if (teste == 1) {
                 System.out.println("Digite o nome do livro que deseja pesquisar: ");
                 String endereco = teclado.nextLine();
