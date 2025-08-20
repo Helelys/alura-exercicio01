@@ -17,7 +17,7 @@ public class Titulo implements Comparable<Titulo> {
 
     public Titulo(TituloOmdb tituloOmdb) throws ErroDeConversaoException {
         this.nome = tituloOmdb.title();
-        if (tituloOmdb.year().length() > 4) {
+        if (tituloOmdb.year().length() < 4) {
             throw new ErroDeConversaoException("Ano de lançamento inválido: " + tituloOmdb.year());
         }
         this.anoDeLancamento = Integer.parseInt(tituloOmdb.year());
